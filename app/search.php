@@ -161,7 +161,6 @@ function setClassesInText(array $data): string
     foreach ($stylePositions as $stylePosition) {
         foreach ($stylePosition as $classId => $length) {
             $res .= '<span class="class_'.$classId.'">'.mb_substr($string, $offset, $length).'</span>';
-            $res .= '['.$classId.'|'.$length.']';
             $offset += $length;
         }
     }
