@@ -2,5 +2,6 @@
 
 ```
 > cd project_name
-> sudo docker-compose up -d 
+> sudo docker-compose up -d
+> http://localhost/
 ```
