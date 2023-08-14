@@ -1,0 +1,28 @@
+version: '3'
+services:
+
+  #################################
+  server:
+    container_name: server
+    build:
+      context: "./docker/server"
+      dockerfile: "Dockerfile"
+    ports:
+      - "80:80"
+    depends_on:
+      - php-fpm
+    volumes:
+      - "./app:/srv/app"
+      - "./docker/server:/srv/server"
+      - "./docker/server/nginx:/etc/nginx/conf.d"
+    working_dir: "/srv/server"
+
+  #################################
+  php-fpm:
+    container_name: php-fpm
+    volumes:
+      - "./app:/srv/app"
+    build:
+      context: "./docker/php-fpm"
+      dockerfile: "Dockerfile"
+    working_dir: "/srv/app"
